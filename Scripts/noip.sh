@@ -4,7 +4,7 @@ _MENU()
 {
         echo "INDIQUE QUE OPCIÓN DESEE REALIZAR:"
         echo
-    echo
+        echo
         echo "1) Instalar Servicio NO-IP."
         echo "2) Crear el script para iniciar automaticamente."
         echo "3) Salir."
@@ -20,8 +20,8 @@ do
                         sudo make install
                         cd ..
                         rm -r noip-duc-linux.tar.gz
-                                echo
-                echo
+                        echo
+                        echo
                         _MENU
                         ;;
 
