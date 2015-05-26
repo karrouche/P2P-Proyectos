@@ -61,20 +61,20 @@ do
             ;;
 
         5)  read -p "Indique el nombre de la carpeta: " var3
-            sudo echo "[$var3]" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "[$var3]" >> /etc/samba/smb.conf
             read -p "Ubicación en el servidor: " var4
             sudo mkdir $var4
-            sudo echo "path = $var4" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "path = $var4" >> /etc/samba/smb.conf
             read -p "Explorable? YES/NO: " var5
-            sudo echo "browsable = $var5" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "browsable = $var5" >> /etc/samba/smb.conf
             read -p "Solo lectura? YES/NO: " var6
-            sudo echo "read only = $var6" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "read only = $var6" >> /etc/samba/smb.conf
             read -p "Usuarios validos: " var7
-            sudo echo "valid user = $var7" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "valid user = $var7" >> /etc/samba/smb.conf
             read -p "Permisos para crear archivos en codigo numerico: " var8
-            sudo echo "create mask = $var8" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "create mask = $var8" >> /etc/samba/smb.conf
             read -p "Permisos para crear directorios en codigo numerico: " var9
-            sudo echo "directory mask = $var9" >> /home/bananapi/Desktop/smb.conf
+            sudo echo "directory mask = $var9" >> /etc/samba/smb.conf
             echo
             echo
             echo
