@@ -37,6 +37,9 @@ do
 #
 ### END INIT INFO
 sudo /usr/local/bin/noip2" > /etc/init.d/noip2
+                        sudo chmod +x /etc/init.d/noip2
+                        sudo update-rc.d noip2 defaults
+                        echo
                         echo "Script creado correctamente"
                         sleep 4
             clear
