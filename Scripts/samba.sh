@@ -1,7 +1,7 @@
 #!/bin/bash
 #Mohamed Mohand Karrouche
-#Crea un script que al pasarle una opción, realice varias cosas.
 _MENU()
+
 {
     echo "INDIQUE QUE OPCIÓN DESEE REALIZAR:"
     echo
@@ -17,11 +17,13 @@ _MENU()
     echo "9) Salir."    
     echo -n "Indica una opcion: "
 }
+
 until [ "$opc" = "9" ];
 do
     case $opc in
         1)  sudo apt-get -y install samba samba-common samba-common-bin samba-doc
-            echo
+            sudo sed -i "s/$(head -n 102 /etc/samba/smb.conf | tail -1)/    \security\ = user\ /g" /etc/samba/smb.conf
+	    echo
             echo
             echo "Servicio instalado correctamente"
             sleep 4
@@ -37,7 +39,6 @@ do
             clear
             _MENU
             ;;
-        
 
         3)  read -p "Indique el nombre de Usuario: " var1;
             sudo adduser --no-create-home $var1;
@@ -69,7 +70,7 @@ do
             sudo echo "browsable = $var5" >> /etc/samba/smb.conf
             read -p "Solo lectura? YES/NO: " var6
             sudo echo "read only = $var6" >> /etc/samba/smb.conf
-            read -p "Usuarios validos: " var7
+            read -p "Usuarios validos (Separados por comas): " var7
             sudo echo "valid user = $var7" >> /etc/samba/smb.conf
             read -p "Permisos para crear archivos en codigo numerico: " var8
             sudo echo "create mask = $var8" >> /etc/samba/smb.conf
@@ -78,7 +79,7 @@ do
             echo
             echo
             echo
-            echo "Carpeta Compartida añadida al fichero smb.conf. Reinicie el servicio para hacer efecto el cambio"
+            echo "Carpeta Compartida añadida al fichero smb.conf. Reinicie el servicio para hacer efectivo el cambio"
             sleep 4
             clear
             _MENU
@@ -107,8 +108,7 @@ do
             ;;
 
         9)
-        exit
-        ;; 
+        sudo ./instalar.sh ;; 
   
         *)
         clear
