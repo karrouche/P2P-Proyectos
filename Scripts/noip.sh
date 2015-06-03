@@ -13,7 +13,8 @@ _MENU()
 until [ "$opc" = "3" ];
 do
         case $opc in
-                1)      wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+                1)	cd /home/bananapi
+                        wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
                         tar -zxf noip-duc-linux.tar.gz
                         cd noip-2.1.9-1/
                         make
@@ -42,11 +43,11 @@ sudo /usr/local/bin/noip2" > /etc/init.d/noip2
                         echo
                         echo "Script creado correctamente"
                         sleep 4
-            clear
+                        clear
                         _MENU
                         ;;
 
-                3) exit ;;
+                3) sudo ./instalar.sh ;;
 
                 *)
                 clear
@@ -54,6 +55,6 @@ sudo /usr/local/bin/noip2" > /etc/init.d/noip2
                 _MENU
                 ;;
 
-        esac
+	esac
 read opc
 done
