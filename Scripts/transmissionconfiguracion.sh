@@ -7,11 +7,10 @@ _MENU()
     echo
     echo "1) Configurar directorio de Torrents COMPLETOS."
     echo "2) Configurar directorio de Torrents INCOMPLETOS."
-    echo "3) Cambiar el puerto de Transmission."
-    echo "4) Salir."    
+    echo "3) Salir."    
     echo -n "Indica una opcion: "
 }
-until [ "$opc" = "4" ];
+until [ "$opc" = "3" ];
 do
     case $opc in
         1)  sudo chmod -R 777 /etc/transmission-daemon
@@ -38,18 +37,7 @@ do
             ;;
         
 
-        3)  sudo chmod -R 777 /etc/transmission-daemon
-	    sudo chmod -R 777 /var/lib/transmission-daemon/info/settings.json
-	    sudo /etc/init.d/transmission-daemon stop
-            read -p "Indique el nuevo puerto de escucha de Transmission: " var5
-	    sudo sed -i "s/$(head -n 50 /etc/transmission-daemon/settings.json | tail -1)/    \"rpc-port\": \"$var5\", /g" /etc/transmission-daemon/settings.json && sudo sed -i "s/$(head -n 50 /var/lib/transmission-daemon/info/settings.json | tail -1)/    \"rpc-port\": \"$var5\", /g" /var/lib/transmission-daemon/info/settings.json
-
-	    sudo /etc/init.d/transmission-daemon start
-           clear
-           _MENU
-           ;;
-
-        4)  sudo ./transmission.sh ;; 
+        3)  sudo ./transmission.sh ;; 
   
         *)
         clear
